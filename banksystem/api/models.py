@@ -50,6 +50,18 @@ class ClientManager(models.Model):
     
     def __str__(self):
         return self.name
-    
 
+class Account(models. Model):
+    open_date = models.CharField(max_length=250)
+    account_type = models.CharField(max_length=250)
+    client = models.ForeignKey(Client, on_delete = models.CASCADE)
+    bank = models.ForeignKey(Bank, on_delete = models.CASCADE)
+
+    def json_object(self):
+        return {
+            'name': self.name,
+            'address': self.address,
+        }
     
+    def __str__(self):
+        return self.name
