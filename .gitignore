@@ -1,5 +1,7 @@
 *djangoenv
-banksystem/api/__pycache__/*
-banksystem/api/migrations/__pycache__/*
-banksystem/banksystem/__pycache__/
-banksystem/db.sqlite3
+__pycache__/
+*.py[cod]
+*$py.class
+local_settings.py
+*.sqlite3
+
