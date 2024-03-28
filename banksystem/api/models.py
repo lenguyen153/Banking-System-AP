@@ -65,3 +65,24 @@ class Account(models. Model):
     
     def __str__(self):
         return self.name
+    
+class Transfer(models.Model):
+    account = models.ForeignKey(Account, on_delete = models.CASCADE)
+    branch = models.ForeignKey(Branch, on_delete = models.CASCADE)
+
+    def json_object(self):
+        return {
+            'account': self.account,
+            'branch': self.branch,
+        }
+    
+    def __str__(self):
+        return self.name
+    
+class Withdraw(models.Model):
+    amount = models.FloatField()
+    account = models.ForeignKey(Account, on_delete = models.CASCADE)
+
+class Deposit(models.Model):
+    amount = models.FloatField()
+    account = models.ForeignKey(Account, on_delete = models.CASCADE)
