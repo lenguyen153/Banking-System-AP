@@ -1,13 +1,9 @@
-from django.db import models
 from __future__ import unicode_literals
+
+from django.db import models
 
 # Create your models here.
 class Branch(models.Model):
-    name = models.CharField(max_length=250)
-    address = models.CharField(max_length=250)
-    branch_code = models.CharField(max_length=250)
-
-class Bank(models.Model):
     name = models.CharField(max_length=250)
     address = models.CharField(max_length=250)
     branch_code = models.CharField(max_length=250)
@@ -24,6 +20,19 @@ class Bank(models.Model):
     
     def __str__(self):
         return self.name
+    
+class Bank(models.Model):
+    name = models.CharField(max_length=250)
+    branch = models.ForeignKey(Branch,on_delete=models.CASCADE)
+
+    def json_object(self):
+        return {
+            "name": self.name,
+            "branch": self.branch
+        }
+
+    def __str__(self):
+        return self.name 
 
 class Client(models.Model):
     name = models.CharField(max_length=250)
