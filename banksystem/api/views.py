@@ -21,3 +21,7 @@ class BranchDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 class BanksAPIView(generics.ListCreateAPIView):
     queryset = Bank.objects.all()
     serializer_class = BankSerializer
+
+class BankDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Bank.objects.all()
+    serializer_class = BankSerializer

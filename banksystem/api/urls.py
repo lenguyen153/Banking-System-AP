@@ -1,4 +1,4 @@
-from django.urls import path
+# from django.urls import path
 from django.conf.urls import url
 from rest_framework import routers
 
@@ -20,6 +20,7 @@ from .views import (
 # router.register(r'accounts', AccountListAPIView, basename='accounts')
 
 urlpatterns = [
-    url(r'^branches/', BranchDetailAPIView.as_view(), name = 'branches'),
+    url(r'^branch/(?P<pk>[0-9]+)/', BranchDetailAPIView.as_view(),name='branch-detail'),
+    url(r'^branches/', BranchesAPIView.as_view(),name='branches'),
     url(r'^banks/', BanksAPIView.as_view(), name = 'banks')
 ]
