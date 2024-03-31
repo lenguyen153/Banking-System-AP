@@ -48,11 +48,15 @@ Start the development server:
  ```
 
 Access the API endpoints using the base URL provided by the development server, e.g., http://localhost:8000/.
-API Authentication
+
+## API Authentication
 The API endpoints may require authentication depending on your project's settings. Make sure to authenticate appropriately before accessing protected endpoints.
 
-Contributors
+## Contributors
 Vincent Trinh
 
-License
-This project is licensed under the MIT License.
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
