@@ -12,8 +12,6 @@ class Branch(models.Model):
     class Meta:
         verbose_name_plural = "Branches"
 
-
-
     def json_object(self):
         return {
             "name":self.name,

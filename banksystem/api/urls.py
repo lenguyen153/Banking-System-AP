@@ -1,5 +1,5 @@
-# from django.urls import path
-from django.conf.urls import url
+from django.urls import path
+# from django.conf.urls import url
 from rest_framework import routers
 
 from .views import (
@@ -11,6 +11,7 @@ from .views import (
     # AccountListAPIView
 )
 
+
 # router = routers.SimpleRouter()
 # router.register(r'branches', BranchesAPIView, basename='branches')
 # router.register(r'branch', BranchDetailAPIView, basename='branch-detail')
@@ -20,7 +21,10 @@ from .views import (
 # router.register(r'accounts', AccountListAPIView, basename='accounts')
 
 urlpatterns = [
-    url(r'^branch/(?P<pk>[0-9]+)/', BranchDetailAPIView.as_view(),name='branch-detail'),
-    url(r'^branches/', BranchesAPIView.as_view(),name='branches'),
-    url(r'^banks/', BanksAPIView.as_view(), name = 'banks')
+    # url(r'api/branch/(?P<pk>[0-9]+)/', BranchDetailAPIView.as_view(), name='branch-detail'),
+    # url(r'api/branches/', BranchesAPIView.as_view(), name='branches'),
+    # url(r'api/banks/', BanksAPIView.as_view(), name = 'banks'),
+    path(r'branch/<int:pk>/', BranchDetailAPIView.as_view(), name='branch-detail'),
+    path(r'branches/', BranchesAPIView.as_view(), name='branches'),
+    path(r'banks/', BanksAPIView.as_view(), name='banks')
 ]
