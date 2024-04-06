@@ -41,7 +41,6 @@ Run migrations to set up the database:
   python manage.py migrate
  ```
 
-
 Start the development server:
   ```bash
   python manage.py runserver
