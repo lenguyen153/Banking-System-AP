@@ -26,7 +26,7 @@ To use the APIs, you can send HTTP requests to the corresponding endpoints using
 1. Clone the repository:
 
   ```bash
-  git clone [<repository_url>](https://github.com/lenguyen153/Banking-System-AP.git)
+  git clone <repository_url>
  ```
 
 Install the required dependencies:
@@ -40,7 +40,6 @@ Run migrations to set up the database:
   ```bash
   python manage.py migrate
  ```
-
 
 Start the development server:
   ```bash
