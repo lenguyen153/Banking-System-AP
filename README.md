@@ -26,7 +26,7 @@ To use the APIs, you can send HTTP requests to the corresponding endpoints using
 1. Clone the repository:
 
   ```bash
-  git clone <repository_url>
+  git clone [<repository_url>](https://github.com/lenguyen153/Banking-System-AP.git)
  ```
 
 Install the required dependencies:
