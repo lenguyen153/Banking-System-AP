@@ -9,10 +9,16 @@ class BranchSerializer(serializers.ModelSerializer):
         read_only_fields = ('id',)
 
 class BankSerializer(serializers.ModelSerializer):
-    branch = BranchSerializer()
+    branch_id = serializers.IntegerField(write_only=True)
+
     class Meta:
         model = Bank
-        fields = ('__all__')
+        fields = ['id', 'name', 'branch_id']
+
+    def create(self, validated_data):
+        branch_id = validated_data.pop('branch_id')  # Extract branch_id from validated_data
+        bank = Bank.objects.create(branch_id=branch_id, **validated_data)  # Create Bank instance with branch_id
+        return bank
 
 class BranchDetailSerializer(serializers.ModelSerializer):
     class Meta:

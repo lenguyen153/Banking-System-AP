@@ -25,8 +25,7 @@ class Branch(models.Model):
 
 class Bank(models.Model):
     name = models.CharField(max_length=250)
-    branch = models.ForeignKey(Branch,on_delete=models.CASCADE)
-
+    branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
 
     def json_object(self):
         return {
@@ -61,10 +60,10 @@ class Client(models.Model):
 
 class Account(models.Model):
     """Represents Bank Account"""
-    client = models.ForeignKey(Client,on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
     open_date = models.CharField(max_length=250)
     account_type = models.CharField(max_length=250)
-    bank = models.ForeignKey(Bank,on_delete=models.CASCADE)
+    bank = models.ForeignKey(Bank, on_delete=models.CASCADE)
 
     def json_object(self):
         return {
@@ -78,8 +77,8 @@ class Account(models.Model):
 
 
 class Transfer(models.Model):
-    account = models.ForeignKey(Account,on_delete=models.CASCADE)
-    branch = models.ForeignKey(Branch,on_delete=models.CASCADE)
+    account = models.ForeignKey(Account, on_delete=models.CASCADE)
+    branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
 
     def json_object(self):
         return {
@@ -93,9 +92,9 @@ class Transfer(models.Model):
 
 class Withdraw(models.Model):
     amount = models.FloatField()
-    account = models.ForeignKey(Account,on_delete=models.CASCADE)
+    account = models.ForeignKey(Account, on_delete=models.CASCADE)
 
 
 class Deposit(models.Model):
     amount = models.FloatField()
-    account = models.ForeignKey(Account,on_delete=models.CASCADE)
+    account = models.ForeignKey(Account, on_delete=models.CASCADE)
