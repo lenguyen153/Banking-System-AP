@@ -22,6 +22,7 @@ class Branch(models.Model):
     def __str__(self):
         return self.name
 
+
 class Bank(models.Model):
     name = models.CharField(max_length=250)
     branch = models.ForeignKey(Branch,on_delete=models.CASCADE)
@@ -35,6 +36,7 @@ class Bank(models.Model):
 
     def __str__(self):
         return self.name 
+
 
 class ClientManager(models.Model):
     name = models.CharField(max_length=250)
@@ -57,7 +59,6 @@ class Client(models.Model):
         return self.name
 
 
-
 class Account(models.Model):
     """Represents Bank Account"""
     client = models.ForeignKey(Client,on_delete=models.CASCADE)
@@ -65,13 +66,11 @@ class Account(models.Model):
     account_type = models.CharField(max_length=250)
     bank = models.ForeignKey(Bank,on_delete=models.CASCADE)
 
-
     def json_object(self):
         return {
             "open_date":self.open_date,
             "account_type":self.account_type,
             "bank":self.bank
-
         }
 
     def __str__(self):
